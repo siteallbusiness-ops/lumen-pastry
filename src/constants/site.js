@@ -4,7 +4,7 @@ export { SITE_URL };
 export const SITE_NAME = 'The Sugar Rush';
 export const SITE_SHORT_NAME = 'Sugar Rush';
 export const SITE_TAGLINE = 'Dessert atelier';
-export const SITE_EMAIL = 'info@thesugarrushh.com';
+export const SITE_EMAIL = 'feedme@thesugarrushh.com';
 
 export const STUDIO_ADDRESS = '9 Glassworks Lane, Riverhead';
 export const STUDIO_ADDRESS_LINE = 'Glassworks Lane · Riverhead';
