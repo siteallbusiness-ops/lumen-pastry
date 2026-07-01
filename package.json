@@ -9,11 +9,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize:images": "node scripts/convert-images-to-webp.mjs"
   },
   "dependencies": {
     "next": "^15.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

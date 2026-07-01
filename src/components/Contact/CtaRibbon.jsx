@@ -21,7 +21,7 @@ export default function CtaRibbon() {
             <div className={styles.visualCol}>
               <div className={styles.imageFrame}>
                 <Image
-                  src="/images/lumen-07.png"
+                  src="/images/lumen-07.webp"
                   width={1536}
                   height={1024}
                   alt="Purple and maple-glazed cruller duo on parchment"

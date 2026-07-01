@@ -5,7 +5,7 @@ export function createPageMetadata({
   description,
   keywords = [],
   path = '',
-  ogImage = '/images/lumen-12.png',
+  ogImage = '/images/lumen-12.webp',
 }) {
   const url = `${SITE_URL}${path}`;
   const fullTitle = title.includes(SITE_NAME) ? title : `${title} — ${SITE_NAME}`;

@@ -62,7 +62,7 @@ export default function Hero() {
 
             <div className={styles.heroShot}>
               <Image
-                src="/images/lumen-12.png"
+                src="/images/lumen-12.webp"
                 width={1024}
                 height={682}
                 alt="Baked raspberry cheesecake with glossy coulis on a pedestal against a lavender wall"
