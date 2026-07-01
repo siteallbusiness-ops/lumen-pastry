@@ -1,0 +1,60 @@
+.waveBridge {
+  position: relative;
+  z-index: 2;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.waveSvg {
+  display: block;
+  width: 100%;
+  height: clamp(48px, 7vw, 76px);
+  vertical-align: bottom;
+}
+
+/* Bottom edge — flows into the next section */
+.waveEnd {
+  margin-top: clamp(20px, 3vw, 32px);
+  margin-bottom: -4px;
+}
+
+/* Top edge — flows from the previous section */
+.waveStart {
+  transform: scaleY(-1);
+  margin-top: -4px;
+  margin-bottom: 0;
+}
+
+.tonePage {
+  color: var(--surface-page);
+}
+
+.toneElevated {
+  color: var(--surface-elevated);
+}
+
+.toneDark {
+  color: var(--surface-twilight);
+}
+
+.toneTwilight {
+  color: var(--surface-twilight);
+}
+
+.toneFooter {
+  color: var(--surface-page);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waveEnd {
+    margin-top: 16px;
+  }
+
+  .waveStart {
+    margin-bottom: 12px;
+  }
+
+  .waveSvg {
+    height: 28px;
+  }
+}

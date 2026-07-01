@@ -1,0 +1,10 @@
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+
+body {
+  background-color: var(--surface-page);
+  overflow-x: hidden;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}

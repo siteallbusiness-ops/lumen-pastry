@@ -1,0 +1,122 @@
+:root {
+  /* ── Brand palette (edit these to retheme the entire site) ── */
+  --primary: #b4235c;
+  --primary-hover: #931845;
+  --primary-soft: rgba(180, 35, 92, 0.1);
+  --secondary: #6e4b8e;
+  --secondary-deep: #4a3563;
+  --accent-warm: #c8956a;
+
+  --black: #211b2e;
+  --white: #ffffff;
+  --text: #5e5569;
+  --text-muted: #7a7185;
+  --heading: #211b2e;
+
+  /* ── Surfaces ── */
+  --surface-page: #f2eef9;
+  --surface-page-alt: #ebe3f4;
+  --surface-elevated: #ffffff;
+
+  /* Section surfaces — solid fills only (no asymmetric washes; prevents edge seams) */
+  --wash-page-a: none;
+  --wash-page-b: none;
+  --wash-elevated-a: none;
+  --wash-elevated-b: none;
+  --surface-footer: var(--surface-elevated);
+  --surface-footer-elevated: #ffffff;
+  --surface-twilight: #242030;
+  --dark-band-glow:
+    radial-gradient(ellipse 110% 85% at 18% -8%, rgba(110, 75, 142, 0.22) 0%, transparent 52%),
+    radial-gradient(ellipse 88% 68% at 90% 108%, rgba(180, 35, 92, 0.13) 0%, transparent 48%);
+  --radiant-dark-gradient: linear-gradient(
+    152deg,
+    #181322 0%,
+    #221a30 50%,
+    #181322 100%
+  );
+  --guest-note-gradient: var(--radiant-dark-gradient);
+
+  /* Lilac page bands — solid surface-page */
+  /* ── Borders & lines ── */
+  --border-subtle: #d9d0e8;
+  --border-strong: #c4b6dc;
+  --border-footer: rgba(217, 208, 232, 0.9);
+
+  /* ── Effects ── */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 20px 50px rgba(33, 27, 46, 0.08);
+  --shadow-header: 0 8px 32px rgba(33, 27, 46, 0.06);
+  --shadow-header-scrolled: 0 12px 40px rgba(33, 27, 46, 0.1);
+  --shadow-cta: 0 8px 24px rgba(180, 35, 92, 0.35);
+  --shadow-cta-hover: 0 14px 36px rgba(180, 35, 92, 0.45);
+  --glow-primary: rgba(180, 35, 92, 0.22);
+
+  /* ── Motion ── */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ── */
+  --max: 1160px;
+  --header-h: 80px;
+  --header-h-compact: 68px;
+
+  /* ── Header glass ── */
+  --header-bg: rgba(255, 255, 255, 0.72);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.92);
+  --header-blur: 20px;
+  --header-border: rgba(217, 208, 232, 0.65);
+
+  /* ── Header CTA gradient ── */
+  --cta-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --cta-gradient-hover: linear-gradient(135deg, var(--primary-hover) 0%, var(--secondary-deep) 100%);
+
+  /* ── Footer ── */
+  --footer-text: var(--text);
+  --footer-text-muted: var(--text-muted);
+  --footer-heading: var(--heading);
+  --footer-accent: var(--primary);
+  --footer-padding-y: clamp(56px, 8vw, 88px);
+  --footer-padding-bottom: max(32px, calc(24px + env(safe-area-inset-bottom, 0px)));
+
+  /* ── Legacy aliases (used by page components — do not remove) ── */
+  --lumen-bg: var(--surface-page);
+  --lumen-bg-2: var(--surface-page-alt);
+  --lumen-surface: var(--surface-elevated);
+  --lumen-ink: var(--heading);
+  --lumen-muted: var(--text);
+  --lumen-line: var(--border-subtle);
+  --lumen-line-strong: var(--border-strong);
+  --lumen-accent: var(--primary);
+  --lumen-accent-hover: var(--primary-hover);
+  --lumen-violet: var(--secondary);
+  --lumen-violet-deep: var(--secondary-deep);
+  --lumen-gold: var(--accent-warm);
+  --lumen-slate: #3a4552;
+  --lumen-footer: var(--surface-footer-elevated);
+  --lumen-glow: var(--glow-primary);
+  --shadow: var(--shadow-soft);
+  --transition: var(--transition-base);
+
+  /* ── Homepage sections ── */
+  --section-padding-y: clamp(64px, 9vw, 112px);
+  --section-gap: clamp(40px, 6vw, 64px);
+  --card-padding: clamp(24px, 3vw, 32px);
+  --card-radius: var(--radius-lg);
+  --card-shadow: 0 4px 24px rgba(33, 27, 46, 0.04);
+  --card-shadow-hover: 0 20px 48px rgba(33, 27, 46, 0.1);
+  --card-border: 1px solid rgba(217, 208, 232, 0.7);
+  --prose-width: 62ch;
+
+  /* Typography scale */
+  --text-display: clamp(2.4rem, 5vw, 3.75rem);
+  --text-h2: clamp(1.75rem, 3vw, 2.35rem);
+  --text-h3: clamp(1.15rem, 2vw, 1.35rem);
+  --text-lead: clamp(1.02rem, 1.5vw, 1.125rem);
+  --text-eyebrow: 11px;
+}

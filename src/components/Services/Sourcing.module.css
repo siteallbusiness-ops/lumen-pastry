@@ -1,0 +1,169 @@
+.sourcingSection {
+  position: relative;
+  padding: clamp(36px, 5.5vw, 64px) 0 0;
+  background-color: var(--surface-elevated);
+  overflow: hidden;
+}
+
+/* ── Layout ── */
+.sourcingStage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 5vw, 56px);
+  align-items: start;
+  padding-bottom: clamp(48px, 7vw, 72px);
+}
+
+.introBlock {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+
+/* ── Tag grid ── */
+.tagGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(12px, 2vw, 16px);
+}
+
+.tagCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(20px, 3vw, 26px) clamp(18px, 2.5vw, 24px);
+  border-radius: var(--card-radius);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 208, 232, 0.75);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+  cursor: default;
+}
+
+.tagCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cta-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.tagCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(110, 75, 142, 0.28);
+}
+
+.tagCard:hover::before {
+  opacity: 1;
+}
+
+/* Stagger visual rhythm — every 3rd card spans full width on desktop */
+.tagCard:nth-child(3),
+.tagCard:nth-child(6) {
+  grid-column: 1 / -1;
+}
+
+.tagCard:nth-child(3) .tagLabel,
+.tagCard:nth-child(6) .tagLabel {
+  font-size: clamp(14px, 1.8vw, 15px);
+}
+
+.tagIndex {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  background: var(--cta-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.75;
+}
+
+.tagLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary-deep);
+  line-height: 1.35;
+}
+
+.tagShine {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.tagCard:hover .tagShine {
+  opacity: 1;
+}
+
+/* ── Bridge into hours band ── */
+.sectionBridge {
+  margin-top: 0;
+  margin-bottom: -4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+  .sourcingStage {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .introBlock {
+    position: static;
+  }
+
+  .tagGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tagCard:nth-child(3),
+  .tagCard:nth-child(6) {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .tagGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tagCard {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+  }
+
+  .tagIndex {
+    font-size: 1.25rem;
+    min-width: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tagCard:hover {
+    transform: none;
+  }
+}

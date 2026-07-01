@@ -1,0 +1,88 @@
+.schedule {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, auto) 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.row:hover {
+  background: rgba(235, 227, 244, 0.45);
+}
+
+.dayName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--heading);
+  line-height: 1.35;
+}
+
+.leader {
+  height: 1px;
+  border-bottom: 1px dotted var(--border-strong);
+  opacity: 0.65;
+  align-self: center;
+}
+
+.dayHours {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--secondary-deep);
+  white-space: nowrap;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  background: rgba(110, 75, 142, 0.08);
+  border: 1px solid rgba(110, 75, 142, 0.1);
+}
+
+.rowClosed .dayHours {
+  color: var(--text-muted);
+  background: rgba(33, 27, 46, 0.04);
+  border-color: var(--border-subtle);
+}
+
+.rowClosed .dayName {
+  color: var(--text-muted);
+}
+
+.scheduleCompact .row {
+  padding: 10px 8px;
+}
+
+.scheduleCompact .dayName {
+  font-size: 14px;
+}
+
+@media (max-width: 420px) {
+  .row {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 6px;
+  }
+
+  .leader {
+    display: none;
+  }
+
+  .dayName {
+    grid-column: 1 / -1;
+  }
+
+  .dayHours {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+}

@@ -1,0 +1,104 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 28px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-base),
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-fast);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.btnPrimary {
+  background: var(--cta-gradient);
+  color: var(--white);
+  box-shadow: var(--shadow-cta);
+}
+
+.btnPrimary:hover {
+  background: var(--cta-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+}
+
+.btnPrimary:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btnGhost {
+  background: var(--surface-elevated);
+  color: var(--lumen-violet-deep);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--card-shadow);
+}
+
+.btnGhost:hover {
+  border-color: var(--secondary);
+  color: var(--secondary-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.btnNav {
+  background: var(--cta-gradient);
+  color: #fff !important;
+  margin-left: 6px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-cta);
+}
+
+.btnNav:hover {
+  background: var(--cta-gradient-hover);
+  transform: translateY(-1px);
+}
+
+.btnRibbon {
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.btnRibbon:hover {
+  border-color: rgba(255, 255, 255, 0.75);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover {
+    transform: none;
+  }
+}

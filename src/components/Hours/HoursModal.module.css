@@ -1,0 +1,249 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 5vw, 40px);
+  background: rgba(33, 27, 46, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: overlayIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 480px);
+  max-height: min(90vh, 720px);
+  overflow: auto;
+  padding: clamp(28px, 5vw, 36px);
+  border-radius: calc(var(--card-radius, var(--radius)) + 4px);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(217, 208, 232, 0.85);
+  box-shadow:
+    0 24px 64px rgba(33, 27, 46, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  animation: dialogIn 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-overflow-scrolling: touch;
+}
+
+.dialogGlow {
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180, 35, 92, 0.12) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.dialogAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: calc(var(--card-radius, var(--radius)) + 4px) calc(var(--card-radius, var(--radius)) + 4px) 0 0;
+  background: var(--cta-gradient);
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--heading);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.closeButton:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-page);
+  transform: scale(1.04);
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.dialogHeader {
+  position: relative;
+  z-index: 1;
+  padding-right: 44px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cta-gradient);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.dialogTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--heading);
+  margin: 0 0 10px;
+}
+
+.dialogLead {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.scheduleWrap {
+  position: relative;
+  z-index: 1;
+  padding: 8px 4px 4px;
+  margin-bottom: 20px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    180deg,
+    rgba(242, 238, 249, 0.55) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.locationStrip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 22px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-page);
+  border: 1px solid var(--border-subtle);
+}
+
+.locationIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--cta-gradient);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(180, 35, 92, 0.22);
+}
+
+.locationText {
+  margin: 0;
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+.locationText strong {
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.dialogFooter {
+  position: relative;
+  z-index: 1;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.visitLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition:
+    color var(--transition-fast),
+    gap var(--transition-fast);
+}
+
+.visitLink:hover {
+  color: var(--primary-hover);
+  gap: 12px;
+  text-decoration: none;
+}
+
+.visitArrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.visitLink:hover .visitArrow {
+  transform: translateX(2px);
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .dialog {
+    animation: none;
+  }
+
+  .closeButton:hover {
+    transform: none;
+  }
+}

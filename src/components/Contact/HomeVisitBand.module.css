@@ -1,0 +1,81 @@
+.band {
+  position: relative;
+  margin-top: -4px;
+  padding: clamp(48px, 7vw, 80px) 0 clamp(52px, 7.5vw, 84px);
+  scroll-margin-top: calc(var(--header-h) + 24px);
+  background-color: var(--surface-page);
+  overflow: hidden;
+}
+
+.bandInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.partition {
+  max-width: 920px;
+  width: 100%;
+  margin: clamp(40px, 5.5vw, 56px) auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(110, 75, 142, 0.22) 18%,
+    rgba(180, 35, 92, 0.16) 50%,
+    rgba(110, 75, 142, 0.22) 82%,
+    transparent
+  );
+}
+
+.panelCard {
+  position: relative;
+  background: var(--surface-elevated);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: clamp(24px, 3.5vw, 32px);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.panelCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(110, 75, 142, 0.22);
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 480px;
+    text-align: center;
+  }
+
+  .partition {
+    max-width: 480px;
+    margin-block: clamp(32px, 5vw, 44px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelCard:hover {
+    transform: none;
+  }
+}

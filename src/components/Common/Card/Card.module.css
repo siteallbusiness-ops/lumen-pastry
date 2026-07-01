@@ -1,0 +1,6 @@
+.card {
+  background: var(--lumen-surface);
+  border: 1px solid var(--lumen-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}

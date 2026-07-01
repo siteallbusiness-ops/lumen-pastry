@@ -1,0 +1,334 @@
+.servicesSection {
+  position: relative;
+  padding: clamp(36px, 5.5vw, 60px) 0 0;
+  background-color: var(--surface-elevated);
+  overflow: hidden;
+}
+
+/* ── Shell ── */
+.timelineShell {
+  position: relative;
+  margin-top: clamp(12px, 2vw, 20px);
+}
+
+/* Horizontal connector line (desktop) */
+.railLine {
+  display: none;
+}
+
+@media (min-width: 993px) {
+  .railLine {
+    display: block;
+    position: absolute;
+    top: 9px;
+    left: calc(12.5% + 4px);
+    right: calc(12.5% + 4px);
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--border-subtle) 0%,
+      rgba(180, 35, 92, 0.4) 20%,
+      rgba(110, 75, 142, 0.5) 80%,
+      var(--border-subtle) 100%
+    );
+    border-radius: 2px;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+/* ── Steps grid ── */
+.timelineList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+  position: relative;
+  z-index: 1;
+}
+
+.timelineStep {
+  position: relative;
+  min-width: 0;
+}
+
+.timelineReveal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* ── Node + stem (desktop) ── */
+.stepNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.railDot {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-elevated);
+  border: 3px solid var(--primary);
+  box-shadow:
+    0 0 0 5px var(--primary-soft),
+    0 0 0 1px var(--surface-elevated);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+  position: relative;
+  z-index: 2;
+}
+
+.cardStem {
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--border-subtle) 100%);
+  border-radius: 2px;
+  margin-top: -1px;
+}
+
+.timelineStep:hover .railDot,
+.timelineStep:focus-within .railDot {
+  transform: scale(1.12);
+  box-shadow:
+    0 0 0 7px var(--primary-soft),
+    0 0 0 1px var(--surface-elevated);
+}
+
+/* ── Card ── */
+.timelineCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1;
+  min-height: 228px;
+  padding: clamp(22px, 3vw, 28px);
+  background: var(--surface-elevated);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+  overflow: hidden;
+}
+
+.timelineCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cta-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.timelineCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.55) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.timelineStep:hover .timelineCard,
+.timelineStep:focus-within .timelineCard {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(110, 75, 142, 0.25);
+}
+
+.timelineStep:hover .timelineCard::before,
+.timelineStep:focus-within .timelineCard::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.timelineTime {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-soft);
+  border: 1px solid rgba(180, 35, 92, 0.14);
+  white-space: nowrap;
+}
+
+.stepIndex {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--border-strong);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.timelineTitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  color: var(--heading);
+  margin: 0 0 12px;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+.timelineText {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  margin-top: auto;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ── Tablet: 2 × 2 ── */
+@media (max-width: 1200px) and (min-width: 993px) {
+  .railLine {
+    display: none;
+  }
+
+  .timelineList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+  }
+
+  .stepNode {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: auto;
+    align-self: stretch;
+    margin-bottom: 0;
+    padding-top: 4px;
+  }
+
+  .railDot {
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 0 4px var(--primary-soft);
+  }
+
+  .cardStem {
+    width: 20px;
+    height: 2px;
+    margin-top: 8px;
+    margin-left: -1px;
+    background: linear-gradient(90deg, var(--primary), var(--border-subtle));
+  }
+
+  .timelineReveal {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .timelineCard {
+    min-height: 190px;
+  }
+}
+
+/* ── Mobile: vertical timeline ── */
+@media (max-width: 992px) {
+  .railLine {
+    display: none;
+  }
+
+  .timelineList {
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 540px;
+    margin-inline: auto;
+    padding: 4px 0 4px 32px;
+    border-left: 2px solid var(--border-subtle);
+  }
+
+  .timelineReveal {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px;
+    padding-bottom: 28px;
+  }
+
+  .timelineStep:last-child .timelineReveal {
+    padding-bottom: 0;
+  }
+
+  .stepNode {
+    flex-direction: column;
+    width: auto;
+    margin-bottom: 0;
+    margin-left: -41px;
+    padding-top: 26px;
+  }
+
+  .railDot {
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 0 0 4px var(--primary-soft);
+  }
+
+  .cardStem {
+    display: none;
+  }
+
+  .timelineCard {
+    min-height: auto;
+    flex: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  .timelineList {
+    padding-left: 28px;
+  }
+
+  .stepNode {
+    margin-left: -37px;
+  }
+
+  .stepIndex {
+    font-size: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timelineStep:hover .timelineCard,
+  .timelineStep:focus-within .timelineCard,
+  .timelineStep:hover .railDot,
+  .timelineStep:focus-within .railDot {
+    transform: none;
+  }
+}

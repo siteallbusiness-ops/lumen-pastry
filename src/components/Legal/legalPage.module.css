@@ -1,0 +1,12 @@
+.pageBody {
+  position: relative;
+  margin-top: -4px;
+  padding: clamp(48px, 7vw, 72px) 0 clamp(64px, 9vw, 96px);
+  background-color: var(--surface-elevated);
+  overflow: hidden;
+}
+
+.pageInner {
+  position: relative;
+  z-index: 1;
+}
